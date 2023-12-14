@@ -69,7 +69,7 @@ function Inicio(props){
     {/* Estructura para hoteles */}
 
     <div className="tarjeta__popular">
-      <img src="assets/hotel-2.jpg" alt="hotel popular" />
+      <div className="imagen-hotel-1" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Holiday Inn Express</h4>
@@ -84,7 +84,7 @@ function Inicio(props){
 
     {/* Estructura para hoteles */}
     <div className="tarjeta__popular">
-      <img src="assets/Hotel-Flamingo.png" alt="hotel popular" />
+    <div className="imagen-hotel-6" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Flamingo Vallarta</h4>
@@ -99,7 +99,7 @@ function Inicio(props){
 
     {/* Estructura para hoteles */}
     <div className="tarjeta__popular">
-      <img src="assets/Hotel-Esperanza.png" alt="hotel popular" />
+    <div className="imagen-hotel-3" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Esperanza</h4>
@@ -114,7 +114,7 @@ function Inicio(props){
 
     {/* Estructura para hoteles */}
     <div className="tarjeta__popular">
-      <img src="assets/Hotel-GammaAcapulco.png" alt="hotel popular" />
+    <div className="imagen-hotel-4" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Gamma Acapulco</h4>
@@ -129,7 +129,7 @@ function Inicio(props){
 
     {/* Estructura para hoteles */}
     <div className="tarjeta__popular">
-      <img src="assets/Hotel-RoyalSolaris.png" alt="hotel popular" />
+    <div className="imagen-hotel-5" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Royal Solaris</h4>
@@ -144,7 +144,7 @@ function Inicio(props){
 
     {/* Estructura para hoteles */}
     <div className="tarjeta__popular">
-      <img src="assets/Hotel-GRCaribeBySolarisDeluxe.png" alt="hotel popular" />
+    <div className="imagen-hotel-6" alt="hotel popular" />
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel GR Caribe</h4>

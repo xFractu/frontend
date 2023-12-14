@@ -231,8 +231,59 @@ nav {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
+.imagen-hotel-1 {
+  background-image: url('src/assets/hotel-2.jpg');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
+.imagen-hotel-2 {
+  background-image: url('src/assets/Hotel-Flamingo.png');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
+.imagen-hotel-3 {
+  background-image: url('src/assets/Hotel-Esperanza.png');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
+.imagen-hotel-4 {
+  background-image: url('src/assets/Hotel-GammaAcapulco.png');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
+.imagen-hotel-5 {
+  background-image: url('src/assets/Hotel-RoyalSolaris.png');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
+.imagen-hotel-6 {
+  background-image: url('src/assets/Hotel-GRCaribeBySolarisDeluxe.png');
+  background-position: center;
+  width: 100%;
+  background-size: 100% auto;
+  padding-top: 55%;
+}
+
 .contenido__popular {
   padding: 1rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
 }
 
 .encabezado__tarjeta__popular {
