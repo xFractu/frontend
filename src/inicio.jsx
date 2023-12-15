@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { TextField, Button, Box } from "@mui/material"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 function Inicio(props){
+    const navigate = useNavigate();
     const  [Cargando, setCargando] = useState(false)
     const [datosFormulario, setDatosFormulario] = useState(
         {nombre: '',
@@ -16,6 +19,11 @@ function Inicio(props){
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
+    };
+
+    const redirectToHotelPage = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel");
     };
 
     return (
@@ -77,7 +85,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Veracruz, México</p>
-          <button className="btn__info">Más Información</button>
+          <button className="btn__info" onClick={redirectToHotelPage}>Más Información</button>
         </div>
       </div>
     </div>
