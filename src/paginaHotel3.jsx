@@ -29,7 +29,7 @@ function PaginaHotel3() {
 
   const redirectToHotelPage = () => {
     // Redirige a la página del hotel cuando se hace clic en el botón
-    navigate("/inicio");
+    navigate("/frontend/");
   };
 
   return (

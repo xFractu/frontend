@@ -23,32 +23,32 @@ function Inicio(props){
 
     const redirectToHotelPage1 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/inicio/paginaHotel1");
+      navigate("/frontend/paginaHotel1");
     };
 
     const redirectToHotelPage2 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel2");
+      navigate("/frontend/paginaHotel2");
     };
 
     const redirectToHotelPage3 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel3");
+      navigate("/frontend/paginaHotel3");
     };
 
     const redirectToHotelPage4 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel4");
+      navigate("/frontend/paginaHotel4");
     };
 
     const redirectToHotelPage5 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel5");
+      navigate("/frontend/paginaHotel5");
     };
 
     const redirectToHotelPage6 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel6");
+      navigate("/frontend/paginaHotel6");
     };
 
     return (
