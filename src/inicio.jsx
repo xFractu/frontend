@@ -21,9 +21,34 @@ function Inicio(props){
       }
     };
 
-    const redirectToHotelPage = () => {
+    const redirectToHotelPage1 = () => {
       // Redirige a la página del hotel cuando se hace clic en el botón
-      navigate("/paginaHotel");
+      navigate("/inicio/paginaHotel1");
+    };
+
+    const redirectToHotelPage2 = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel2");
+    };
+
+    const redirectToHotelPage3 = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel3");
+    };
+
+    const redirectToHotelPage4 = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel4");
+    };
+
+    const redirectToHotelPage5 = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel5");
+    };
+
+    const redirectToHotelPage6 = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/paginaHotel6");
     };
 
     return (
@@ -85,7 +110,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Veracruz, México</p>
-          <button className="btn__info" onClick={redirectToHotelPage}>Más Información</button>
+          <button className="btn__info" onClick={redirectToHotelPage1}>Más Información</button>
         </div>
       </div>
     </div>
@@ -100,7 +125,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Jalisco, México</p>
-          <button className="btn__info">Más Información</button>
+          <button className="btn__info" onClick={redirectToHotelPage2} >Más Información</button>
         </div>
       </div>
     </div>
@@ -115,7 +140,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Baja California Sur, México</p>
-          <button className="btn__info">Más Información</button>
+          <button className="btn__info" onClick={redirectToHotelPage3}>Más Información</button>
         </div>
       </div>
     </div>
@@ -130,7 +155,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Guerrero, México</p>
-          <button className="btn__info">Más Información</button>
+          <button className="btn__info"  onClick={redirectToHotelPage4}>Más Información</button>
         </div>
       </div>
     </div>
@@ -145,7 +170,7 @@ function Inicio(props){
         </div>
         <div className="info">
           <p>Quintana Roo, México</p>
-          <button className="btn__info">Más Información</button>
+          <button className="btn__info" onClick={redirectToHotelPage5}>Más Información</button>
         </div>
       </div>
     </div>
@@ -160,7 +185,7 @@ function Inicio(props){
         </div>
         <div className="info">
         <p>Quintana Roo, México</p>
-        <button className="btn__info">Más Información</button>
+        <button className="btn__info" onClick={redirectToHotelPage6}>Más Información</button>
         </div>
       </div>
     </div>

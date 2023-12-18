@@ -21,7 +21,8 @@ main {
 	margin-bottom: 80px;
 }
 
-.container-img {
+
+.container-img-1 {
 	background-color: #f7f7f9;
 
     background-image: url('assets/hotel-2.jpg');
@@ -30,6 +31,60 @@ main {
     padding-top: 60.4%;
     background-size: 200% auto;
 }
+
+
+.container-img-2 {
+	background-color: #f7f7f9;
+
+    background-image: url('assets/Hotel-Flamingo.png');
+    width: 50%;
+    height: 100%;
+    padding-top: 60.4%;
+    background-size: 215% auto;
+}
+
+.container-img-3 {
+	background-color: #f7f7f9;
+
+    background-image: url('assets/Hotel-Esperanza.png');
+    width: 55%;
+    height: 100%;
+    padding-top: 55.4%;
+    background-size: 200% auto;
+}
+
+.container-img-4 {
+	background-color: #f7f7f9;
+
+    background-image: url('assets/Hotel-GammaAcapulco.png');
+    width: 55%;
+    height: 100%;
+    padding-top: 60.4%;
+    background-size: 200% auto;
+}
+
+.container-img-5 {
+	background-color: #f7f7f9;
+
+    background-image: url('assets/Hotel-RoyalSolaris.png');
+    width: 55%;
+    height: 100%;
+    padding-top: 60.4%;
+    background-size: 200% auto;
+}
+
+.container-img-6 {
+	background-color: #f7f7f9;
+
+    background-image: url('assets/Hotel-GRCaribeBySolarisDeluxe.png');
+    width: 55%;
+    height: 100%;
+    padding-top: 60.4%;
+    background-size: 200% auto;
+}
+
+
+
 
 .container-info-hotel {
 	flex: 1;

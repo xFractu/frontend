@@ -7,13 +7,13 @@ import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } f
 import { useNavigate } from "react-router-dom";
 
 
-function PaginaHotel1() {
+function PaginaHotel3() {
     const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
 
-  const today = new Date();
+  const today = new Date(); 
 
   const handleIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -29,7 +29,7 @@ function PaginaHotel1() {
 
   const redirectToHotelPage = () => {
     // Redirige a la página del hotel cuando se hace clic en el botón
-    navigate("/frontend");
+    navigate("/inicio");
   };
 
   return (
@@ -46,17 +46,17 @@ function PaginaHotel1() {
        </nav>
 
         <main>
-          <div className="container-img">
+          <div className="container-img-3">
         
           </div>
           <div className="container-info-hotel">
             <div className="container-hotel-nombre">
-              <span>Holiday Inn Express</span>
+              <span>Hotel Esperanza</span>
               <i className="fa-solid fa-angle-right"></i>
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $1600</label>
+              <label className='precio' >Precio: $4000</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -114,15 +114,8 @@ function PaginaHotel1() {
 					</div>
 					<div class="text-descripcion">
 						<p>
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Laboriosam iure provident atque voluptatibus
-							reiciendis quae rerum, maxime placeat enim cupiditate
-							voluptatum, temporibus quis iusto. Enim eum qui delectus
-							deleniti similique? Lorem, ipsum dolor sit amet
-							consectetur adipisicing elit. Sint autem magni earum est
-							dolorem saepe perferendis repellat ipsam laudantium cum
-							assumenda quidem quam, vero similique? Iusto officiis
-							quod blanditiis iste?
+            Esperanza - An Auberge Hotel es una fantástica base desde la que conocer numerosas atracciones de Cabo San Lucas, 
+            como Iglesia de San Lucas, que es un lugar histórico popular. ¡Disfruta de tu estancia en Cabo San Lucas!
 						</p>
 					</div>
 				</div>
@@ -168,4 +161,4 @@ function PaginaHotel1() {
   );
 }
 
-export default PaginaHotel1;
+export default PaginaHotel3;
