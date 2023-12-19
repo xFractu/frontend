@@ -51,6 +51,11 @@ function Inicio(props){
       navigate("/frontend/paginaHotel6");
     };
 
+    const redirectToLogin = () => {
+      // Redirige a la página del hotel cuando se hace clic en el botón
+      navigate("/frontend/login");
+    };
+
     return (
         <>
 <nav className="nav__fija">
@@ -59,7 +64,10 @@ function Inicio(props){
     <li className="enlace"><a href="#">Inicio</a></li>
     <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
     <li className="enlace"><a href="#">Blog</a></li>
-    <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+    <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
+      
+    
+
   </ul>
 </nav>
 <header className="seccion__contenedor encabezado__contenedor" id="inicio">
@@ -73,23 +81,23 @@ function Inicio(props){
         <div className="grupo__formulario">
           <div className="grupo__entrada">
             <input type="text" />
-            <label>Ubicación</label>
+            <label>Correo:</label>
           </div>
-          <p>¿A dónde vas?</p>
+          <p>ejemplo@ejemplo.com</p>
         </div>
         <div className="grupo__formulario">
           <div className="grupo__entrada">
-            <input type="text" />
-            <label>Check Out</label>
+            <input type="password" />
+            <label>Contraseña: </label>
           </div>
-          <p>Agregar fecha</p>
+          <p>8 caracteres</p>
         </div>
         <div className="grupo__formulario">
           <div className="grupo__entrada">
-            <input type="text" />
-            <label>Huéspedes</label>
+            <input type="mail" />
+            <label>Nombre:</label>
           </div>
-          <p>Agregar huéspedes</p>
+          <p>Completo</p>
         </div>
       </form>
       <button className="btn"><i className="ri-search-line"></i></button>
