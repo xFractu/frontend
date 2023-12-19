@@ -118,14 +118,27 @@ nav {
 
 .contenido__encabezado h1 {
   margin-bottom: 1rem;
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   line-height: 4rem;
   font-weight: 600;
   color: var(--blanco);
+  transform: translateX(20px);
 }
 
 .contenido__encabezado p {
+  padding-top: 1rem;
   color: var(--extra-claro);
+  transform: translateX(20px);
+}
+.contenido__encabezado h2 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 4rem;
+  font-weight: 600;
+  color: var(--blanco);
+  transform: translateX(20px);
 }
 
 .contenedor__reserva {
@@ -173,7 +186,7 @@ nav {
 
 .contenedor__reserva .grupo__entrada input:focus ~ label,
 .contenedor__reserva .grupo__entrada input:not(:placeholder-shown) ~ label {
-  top: 0;
+  top: -40%;
   font-size: 1rem; /* Puedes ajustar el tamaño del texto según tus preferencias */
 }
 
@@ -200,19 +213,28 @@ nav {
 }
 
 .contenedor__reserva .btn {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2.2rem;
+  padding-bottom: 2.2rem;
   outline: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: var(--blanco);
   background-color: var(--color-primario);
   border-radius: 100%;
   cursor: pointer;
   transition: 0.3s;
+
 }
 
 .contenedor__reserva .btn:hover {
   background-color: var(--color-primario-oscuro);
+}
+
+.btn{
+  padding-top: 2rem;
+  
 }
 
 

@@ -8,9 +8,26 @@ function Inicio(props){
     const navigate = useNavigate();
     const  [Cargando, setCargando] = useState(false)
     const [datosFormulario, setDatosFormulario] = useState(
-        {nombre: '',
-        password: ''
+        {correo: '',
+        password: '',
+        nombre: ''
     })
+
+    const registrarUsuario = async () => {
+      try{
+          const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
+          console.log(response.data)
+          return response.data
+      } catch(error){
+          throw error
+      }
+  }
+
+  const cambiosFormulario = (evento) => {
+    //console.log(evento.target)
+    const {name,value} = evento.target
+    setDatosFormulario ({...datosFormulario, [name]: value})
+}
 
     const handleLinkClick = (event, targetId) => {
       event.preventDefault();
@@ -75,32 +92,33 @@ function Inicio(props){
     <div className="contenido__encabezado">
       <h1>Disfruta de tus Vacaciones Soñadas</h1>
       <p>Reserva Hoteles, Vuelos y paquetes de estadía al precio más bajo.</p>
+      <h2>Registrate Ahora</h2>
     </div>
     <div className="contenedor__reserva">
       <form>
         <div className="grupo__formulario">
           <div className="grupo__entrada">
-            <input type="text" />
+            <input type="text" onChange={cambiosFormulario} name="correo" value={datosFormulario.correo}/>
             <label>Correo:</label>
           </div>
           <p>ejemplo@ejemplo.com</p>
         </div>
         <div className="grupo__formulario">
           <div className="grupo__entrada">
-            <input type="password" />
+            <input type="password" onChange={cambiosFormulario} name="password" value={datosFormulario.password}/>
             <label>Contraseña: </label>
           </div>
           <p>8 caracteres</p>
         </div>
         <div className="grupo__formulario">
           <div className="grupo__entrada">
-            <input type="mail" />
+            <input type="text" onChange={cambiosFormulario} name="nombre" value={datosFormulario.nombre}/>
             <label>Nombre:</label>
           </div>
           <p>Completo</p>
         </div>
       </form>
-      <button className="btn"><i className="ri-search-line"></i></button>
+      <button className="btn" onClick={registrarUsuario} disabled={Cargando}><i className="ri-search-line">Registrarse</i></button>
     </div>
   </div>
 </header>
