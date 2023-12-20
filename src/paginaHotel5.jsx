@@ -3,7 +3,7 @@ import { Button, Select, MenuItem, TextField, Box } from '@mui/material';
 import './hotelStyle.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } from 'react-icons/fa';
+import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaSpa } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,11 @@ function PaginaHotel5() {
     navigate("/frontend/");
   };
 
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
+  };
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -41,7 +46,7 @@ function PaginaHotel5() {
             <li className="enlace"><a href="#" onClick={redirectToHotelPage}>Inicio</a></li>
             <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
             <li className="enlace"><a href="#">Blog</a></li>
-            <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
         </ul>
        </nav>
 
@@ -56,7 +61,7 @@ function PaginaHotel5() {
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $4370</label>
+              <label className='precio' >Precio: $4,370</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -107,12 +112,12 @@ function PaginaHotel5() {
               </Button>
             </div>
 
-            <div class="container-descripcion">
-					<div class="title-descripcion">
+            <div className="container-descripcion">
+					<div className="title-descripcion">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
-					<div class="text-descripcion">
+					<div className="text-descripcion">
 						<p>
             Royal Solaris Cancun Resort Spa es un Cancun Todo Incluido frente al mar en Mexico diseñado para ser uno de los mejores resorts familiares en cancun. 
             Le ofrecemos paquetes Todo Incluido para familias, con una variedad de restaurantes internacionales de primera clase, cómodas suites con vista al mar Caribe, 
@@ -123,10 +128,10 @@ function PaginaHotel5() {
 					</div>
 				</div>
 
-                <div class="container-servicios">
-					<div class="title-servicios">
+                <div className="container-servicios">
+					<div className="title-servicios">
 						<h4>Servcios Principales</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
 					<div className="icon-servicios">
                     <div>
@@ -150,8 +155,8 @@ function PaginaHotel5() {
                         <p>Restaurante</p>
                     </div>
                     <div>
-                        <FaTshirt />
-                        <p>Lavandería</p>
+                        <FaSpa />
+                        <p>Spa</p>
                     </div>
                     </div>
 				</div>

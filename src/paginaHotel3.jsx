@@ -3,7 +3,7 @@ import { Button, Select, MenuItem, TextField, Box } from '@mui/material';
 import './hotelStyle.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } from 'react-icons/fa';
+import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaUmbrellaBeach } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,11 @@ function PaginaHotel3() {
     navigate("/frontend/");
   };
 
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
+  };
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -41,7 +46,7 @@ function PaginaHotel3() {
             <li className="enlace"><a href="#" onClick={redirectToHotelPage}>Inicio</a></li>
             <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
             <li className="enlace"><a href="#">Blog</a></li>
-            <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
         </ul>
        </nav>
 
@@ -56,7 +61,7 @@ function PaginaHotel3() {
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $4000</label>
+              <label className='precio' >Precio: $4,000</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -107,23 +112,26 @@ function PaginaHotel3() {
               </Button>
             </div>
 
-            <div class="container-descripcion">
-					<div class="title-descripcion">
+            <div className="container-descripcion">
+					<div className="title-descripcion">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
-					<div class="text-descripcion">
+					<div className="text-descripcion">
 						<p>
             Esperanza - An Auberge Hotel es una fantástica base desde la que conocer numerosas atracciones de Cabo San Lucas, 
-            como Iglesia de San Lucas, que es un lugar histórico popular. ¡Disfruta de tu estancia en Cabo San Lucas!
-						</p>
+            como Iglesia de San Lucas, que es un lugar histórico popular. 
+						Las habitaciones de Esperanza - An Auberge Hotel incluyen televisor de pantalla plana, minibar y aire acondicionado 
+            para una comodidad mucho mayor, y los huéspedes pueden permanecer conectados con wifi gratuito.
+            ¡Disfruta de tu estancia en Cabo San Lucas!
+            </p>
 					</div>
 				</div>
 
-                <div class="container-servicios">
-					<div class="title-servicios">
+                <div className="container-servicios">
+					<div className="title-servicios">
 						<h4>Servcios Principales</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
 					<div className="icon-servicios">
                     <div>
@@ -147,8 +155,8 @@ function PaginaHotel3() {
                         <p>Restaurante</p>
                     </div>
                     <div>
-                        <FaTshirt />
-                        <p>Lavandería</p>
+                        <FaUmbrellaBeach />
+                        <p>Playa </p>
                     </div>
                     </div>
 				</div>

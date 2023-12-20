@@ -3,7 +3,7 @@ import { Button, Select, MenuItem, TextField, Box } from '@mui/material';
 import './hotelStyle.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } from 'react-icons/fa';
+import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaPlaneDeparture } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,11 @@ function PaginaHotel6() {
     navigate("/frontend/");
   };
 
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
+  };
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -41,7 +46,7 @@ function PaginaHotel6() {
             <li className="enlace"><a href="#" onClick={redirectToHotelPage}>Inicio</a></li>
             <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
             <li className="enlace"><a href="#">Blog</a></li>
-            <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
         </ul>
        </nav>
 
@@ -56,7 +61,7 @@ function PaginaHotel6() {
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $4200</label>
+              <label className='precio' >Precio: $4,200</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -107,12 +112,12 @@ function PaginaHotel6() {
               </Button>
             </div>
 
-            <div class="container-descripcion">
-					<div class="title-descripcion">
+            <div className="container-descripcion">
+					<div className="title-descripcion">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
-					<div class="text-descripcion">
+					<div className="text-descripcion">
 						<p>
             GR Caribe by Solaris, también conocido como GR Caribe Cancún, es un hotel Todo Incluido en Cancún, México. 
             Su elegante arquitectura mediterránea lo convierte en el lugar perfecto para disfrutar de sus vacaciones. 
@@ -124,10 +129,10 @@ function PaginaHotel6() {
 					</div>
 				</div>
 
-                <div class="container-servicios">
-					<div class="title-servicios">
+                <div className="container-servicios">
+					<div className="title-servicios">
 						<h4>Servcios Principales</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
 					<div className="icon-servicios">
                     <div>
@@ -151,8 +156,8 @@ function PaginaHotel6() {
                         <p>Restaurante</p>
                     </div>
                     <div>
-                        <FaTshirt />
-                        <p>Lavandería</p>
+                        <FaPlaneDeparture />
+                        <p>Traslados de aeropuerto</p>
                     </div>
                     </div>
 				</div>

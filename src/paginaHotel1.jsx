@@ -3,7 +3,7 @@ import { Button, Select, MenuItem, TextField, Box } from '@mui/material';
 import './hotelStyle.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } from 'react-icons/fa';
+import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt, FaAccessibleIcon } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,11 @@ function PaginaHotel1() {
     navigate("/frontend/");
   };
 
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
+  };
+
 
   return (
     <>
@@ -42,7 +47,7 @@ function PaginaHotel1() {
             <li className="enlace"><a href="#" onClick={redirectToHotelPage}>Inicio</a></li>
             <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
             <li className="enlace"><a href="#">Blog</a></li>
-            <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
         </ul>
        </nav>
 
@@ -57,7 +62,7 @@ function PaginaHotel1() {
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $1600</label>
+              <label className='precio' >Precio: $1,600</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -108,35 +113,35 @@ function PaginaHotel1() {
               </Button>
             </div>
 
-            <div class="container-descripcion">
-					<div class="title-descripcion">
+            <div className="container-descripcion">
+					<div className="title-descripcion">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
-					<div class="text-descripcion">
+					<div className="text-descripcion">
 						<p>
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Laboriosam iure provident atque voluptatibus
-							reiciendis quae rerum, maxime placeat enim cupiditate
-							voluptatum, temporibus quis iusto. Enim eum qui delectus
-							deleniti similique? Lorem, ipsum dolor sit amet
-							consectetur adipisicing elit. Sint autem magni earum est
-							dolorem saepe perferendis repellat ipsam laudantium cum
-							assumenda quidem quam, vero similique? Iusto officiis
-							quod blanditiis iste?
+              El Holiday Inn Veracruz-Boca Del Rio se encuentra a menos 
+              de 1 km de la playa de Boca Del Rio y cuenta con piscina 
+              cubierta y piscina al aire libre. 
+              El restaurante Las Ventanas ofrece vistas al golfo de México.
+              Todas las habitaciones del Veracruz-Boca Del Rio presentan 
+              una decoración sencilla con suelo de baldosa. TV por cable 
+              y baño privado.
+              El establecimiento sirve un desayuno buffet y una selección 
+              de platos mexicanos e internacionales para la cena.
 						</p>
 					</div>
 				</div>
 
-                <div class="container-servicios">
-					<div class="title-servicios">
+                <div className="container-servicios">
+					<div className="title-servicios">
 						<h4>Servcios Principales</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
 					<div className="icon-servicios">
                     <div>
                         <FaSwimmingPool />
-                        <p>Alberca</p>
+                        <p> 2 Albercas</p>
                     </div>
                     <div>
                         <FaWifi />
@@ -155,8 +160,8 @@ function PaginaHotel1() {
                         <p>Restaurante</p>
                     </div>
                     <div>
-                        <FaTshirt />
-                        <p>Lavandería</p>
+                        <FaAccessibleIcon />
+                        <p>Adaptado para personas con movilidad reducida</p>
                     </div>
                     </div>
 				</div>

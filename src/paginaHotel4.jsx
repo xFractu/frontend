@@ -3,7 +3,7 @@ import { Button, Select, MenuItem, TextField, Box } from '@mui/material';
 import './hotelStyle.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaTshirt } from 'react-icons/fa';
+import { FaSwimmingPool, FaWifi, FaParking, FaDumbbell, FaUtensils, FaSmokingBan } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 
@@ -32,6 +32,11 @@ function PaginaHotel4() {
     navigate("/frontend/");
   };
 
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
+  };
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -41,7 +46,7 @@ function PaginaHotel4() {
             <li className="enlace"><a href="#" onClick={redirectToHotelPage}>Inicio</a></li>
             <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
             <li className="enlace"><a href="#">Blog</a></li>
-            <li className="enlace"><a href="#">Iniciar Sesion</a></li>
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
         </ul>
        </nav>
 
@@ -56,7 +61,7 @@ function PaginaHotel4() {
             </div>
 
             <div className="container-detalles-hotel">
-              <label className='precio' >Precio: $2500</label>
+              <label className='precio' >Precio: $2,500</label>
               <div className="form-group">
                 
                 <label >Check-in</label>
@@ -107,12 +112,12 @@ function PaginaHotel4() {
               </Button>
             </div>
 
-            <div class="container-descripcion">
-					<div class="title-descripcion">
+            <div className="container-descripcion">
+					<div className="title-descripcion">
 						<h4>Descripción</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
-					<div class="text-descripcion">
+					<div className="text-descripcion">
 						<p>
 						Con Gamma disfruta de una experiencia en cada momento, en cada espacio, en cada destino al que viajes.
             Descubre la esencia y la magia de la ciudad hospedándote en Gamma Acapulco Copacabana. 
@@ -126,10 +131,10 @@ function PaginaHotel4() {
 					</div>
 				</div>
 
-                <div class="container-servicios">
-					<div class="title-servicios">
+                <div className="container-servicios">
+					<div className="title-servicios">
 						<h4>Servcios Principales</h4>
-						<i class="fa-solid fa-chevron-down"></i>
+						<i className="fa-solid fa-chevron-down"></i>
 					</div>
 					<div className="icon-servicios">
                     <div>
@@ -153,8 +158,8 @@ function PaginaHotel4() {
                         <p>Restaurante</p>
                     </div>
                     <div>
-                        <FaTshirt />
-                        <p>Lavandería</p>
+                        <FaSmokingBan />
+                        <p>Habitaciones para no fumadores</p>
                     </div>
                     </div>
 				</div>
