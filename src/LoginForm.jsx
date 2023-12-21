@@ -4,6 +4,8 @@ import { FaUser, FaLock, FaHome } from "react-icons/fa";
 import { TextField, Button, Box } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PopupV from "./PopupLoginValido.jsx";
+import PopupIv from "./PopupLoginInvalido.jsx";
 
 
 
@@ -15,23 +17,42 @@ const [datosFormulario, setDatosFormulario] = useState(
     password: ''
 })
 
-const hacerPeticion = async () => {
+const loginUsuario = async (evento) => {
+    evento.preventDefault();
     try{
-        const response = await axios.post('http://localhost:4567/frontend/login',{datosFormulario})
+        const response = await axios.post('http://localhost:4567/login',{datosFormulario})
         console.log(response.data)
-        setId(response.data.id)
-        abrirPopup()
+
+        if (response.data.msj === 'invalido') {
+            // Si la respuesta es 'Invalido', limpiar los campos del formulario
+            abrirPopupIv()
+
+        } else {
+
+            // Si la respuesta es 'Valido', puedes realizar las acciones deseadas
+            setNombre(response.data.nombre)
+            abrirPopupV()
+        }
+
+
+
+
         return response.data
     } catch(error){
         throw error
     }
 }
 
-const [id,setId]=useState('')
+const [nombre,setNombre]=useState('')
 
-const [mostrarPopup, setMostrarPopup] = useState(false);
-const abrirPopup = () => {
-    setMostrarPopup(true);
+const [mostrarPopupV, setMostrarPopupV] = useState(false);
+const abrirPopupV = () => {
+    setMostrarPopupV(true);
+};
+
+const [mostrarPopupIv, setMostrarPopupIv] = useState(false);
+const abrirPopupIv = () => {
+    setMostrarPopupIv(true);
 };
 
 const cambiosFormulario = (evento) => {
@@ -49,7 +70,7 @@ const redirectToHome = () => {
         <>
         <div className="cuerpo">
         <div className="wrapper">
-            <form onSubmit={hacerPeticion}>
+            <form onSubmit={loginUsuario}>
 
                 <div className="boton1">
                     <button type="button" className="button first-button" onClick={redirectToHome}>
@@ -74,14 +95,17 @@ const redirectToHome = () => {
                     <a href="#">¿Contraseña olvidada?</a>
                 </div>
         
-                <button className="Entrar" type="submit" disabled={Cargando}>Entrar</button>
+                <button type="submit" className="Entrar" disabled={Cargando}>Entrar</button>
                 
                 
                 <div className="register-link">
                     <p>¿No tienes una cuenta? <a href="" onClick={redirectToHome}>Register </a></p>
                 </div>
                 <Box m={5}>
-                    {mostrarPopup && <Popup id ={id} onClose={() => setMostrarPopup(false)} />}
+                    {mostrarPopupV && <PopupV nombre ={nombre} onClose={() => setMostrarPopupV(false)} />}
+                </Box>
+                <Box m={5}>
+                    {mostrarPopupIv && <PopupIv nombre ={nombre} onClose={() => setMostrarPopupIv(false)} />}
                 </Box>
             </form>
         </div>

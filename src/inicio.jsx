@@ -2,6 +2,8 @@ import React, {useEffect, useState} from "react";
 import { TextField, Button, Box } from "@mui/material"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import PopupRegistro from "./PopupRegistro.jsx";
+import PopupRegistroS from "./PopupRsindatos.jsx";
 
 
 function Inicio(props){
@@ -13,15 +15,51 @@ function Inicio(props){
         nombre: ''
     })
 
+    const [nombreUsuario, setNombreUsuario]=useState("");
+
+    useEffect(() => {
+      const obtenerNombreUsuario = async () => {
+        try {
+          // Realizar la llamada al backend para obtener el nombre del usuario
+          const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario', { datosFormulario });
+          setNombreUsuario(response.data.nombre);
+        } catch (error) {
+          // Manejar el error según tus necesidades
+          console.error("Error al obtener el nombre del usuario", error);
+        }
+      };
+  
+      // Llamar a la función al cargar la página
+      obtenerNombreUsuario();
+    }, []); // El segundo argumento [] indica que este efecto se ejecutará solo una vez al montar el componente
+  
+    
+
     const registrarUsuario = async () => {
       try{
+
+        if (!datosFormulario.correo || !datosFormulario.password || !datosFormulario.nombre) {
+          abrirPopupRs()
+          return;
+        }
           const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
           console.log(response.data)
+          abrirPopupR()
           return response.data
       } catch(error){
           throw error
       }
   }
+
+  const [mostrarPopupR, setMostrarPopupR] = useState(false);
+  const abrirPopupR = () => {
+    setMostrarPopupR(true);
+  };
+
+  const [mostrarPopupRs, setMostrarPopupRs] = useState(false);
+  const abrirPopupRs = () => {
+    setMostrarPopupRs(true);
+  };
 
   const cambiosFormulario = (evento) => {
     //console.log(evento.target)
@@ -81,7 +119,14 @@ function Inicio(props){
     <li className="enlace"><a href="#">Inicio</a></li>
     <li className="enlace"><a href="#" onClick={(e) => handleLinkClick(e, "hotelesPopulares")}>Hoteles Populares</a></li>
     <li className="enlace"><a href="#">Blog</a></li>
-    <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesion</a></li>
+    {nombreUsuario ? (
+            <>
+              <li className="enlace"><a href="#">{nombreUsuario}</a></li>
+              <li className="enlace"><a href="#">Cerrar Sesión</a></li>
+            </>
+          ) : (
+            <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesión</a></li>
+          )}
       
     
 
@@ -117,12 +162,20 @@ function Inicio(props){
           </div>
           <p>Completo</p>
         </div>
+
       </form>
       <button className="btn" onClick={registrarUsuario} disabled={Cargando}><i className="ri-search-line">Registrarse</i></button>
     </div>
   </div>
+  <Box m={5}>
+                    {mostrarPopupR && <PopupRegistro onClose={() => setMostrarPopupR(false)} />}
+      </Box>
+
+      <Box m={5}>
+                    {mostrarPopupRs && <PopupRegistroS onClose={() => setMostrarPopupRs(false)} />}
+      </Box>
 </header>
-<section className="seccion__contenedor contenedor__populares" id="hotelesPopulares">
+<section className="seccion__contenedor_contenedor__populares" id="hotelesPopulares">
   <h2 className="encabezado__seccion">Hoteles Populares</h2>
   <div className="grid__populares">
     {/* Estructura para hoteles */}
