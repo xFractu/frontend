@@ -22,16 +22,22 @@ const loginUsuario = async (evento) => {
     try{
         const response = await axios.post('http://localhost:4567/login',{datosFormulario})
         console.log(response.data)
-
-        if (response.data.msj === 'invalido') {
+        if (response.data === 'Invalido') {
             // Si la respuesta es 'Invalido', limpiar los campos del formulario
             abrirPopupIv()
+            setDatosFormulario({
+                correo: '',
+                password: ''
+            });
+
+            
 
         } else {
 
             // Si la respuesta es 'Valido', puedes realizar las acciones deseadas
             setNombre(response.data.nombre)
             abrirPopupV()
+            
         }
 
 
@@ -59,6 +65,8 @@ const cambiosFormulario = (evento) => {
     //console.log(evento.target)
     const {name,value} = evento.target
     setDatosFormulario ({...datosFormulario, [name]: value})
+
+    setMostrarPopupIv(false);
 }
 
 const redirectToHome = () => {
@@ -70,7 +78,7 @@ const redirectToHome = () => {
         <>
         <div className="cuerpo">
         <div className="wrapper">
-            <form onSubmit={loginUsuario}>
+            <form>
 
                 <div className="boton1">
                     <button type="button" className="button first-button" onClick={redirectToHome}>
@@ -83,7 +91,7 @@ const redirectToHome = () => {
 
 
                 <div className="input-box">
-                    <input type="text" placeholder="Correo" onChange={cambiosFormulario} name="correo" value={datosFormulario.nombre}/>
+                    <input type="text" placeholder="Correo" onChange={cambiosFormulario} name="correo" value={datosFormulario.correo}/>
                     <FaUser className="icon"/>
                 </div>
                 <div className="input-box">
@@ -95,7 +103,7 @@ const redirectToHome = () => {
                     <a href="#">¿Contraseña olvidada?</a>
                 </div>
         
-                <button type="submit" className="Entrar" disabled={Cargando}>Entrar</button>
+                <button className="Entrar" onClick={loginUsuario} disabled={Cargando}>Entrar</button>
                 
                 
                 <div className="register-link">

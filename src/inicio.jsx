@@ -38,18 +38,34 @@ function Inicio(props){
     const registrarUsuario = async () => {
       try{
 
-        if (!datosFormulario.correo || !datosFormulario.password || !datosFormulario.nombre) {
-          abrirPopupRs()
-          return;
-        }
+        if(datosFormulario.correo && datosFormulario.password && datosFormulario.nombre) {
+          
           const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
           console.log(response.data)
           abrirPopupR()
+          setDatosFormulario({
+            correo: '',
+            password: '',
+            nombre: ''
+        });
           return response.data
+
+
+          
+        }else{
+
+          console.log("si entro");
+          abrirPopupRs();
+          return;
+        }
+
+          
       } catch(error){
           throw error
       }
   }
+
+
 
   const [mostrarPopupR, setMostrarPopupR] = useState(false);
   const abrirPopupR = () => {
@@ -63,8 +79,15 @@ function Inicio(props){
 
   const cambiosFormulario = (evento) => {
     //console.log(evento.target)
+    console.log("entro cambiosF");
     const {name,value} = evento.target
     setDatosFormulario ({...datosFormulario, [name]: value})
+    console.log("entro cambiosF");
+    setMostrarPopupRs(false);
+    console.log("paso rs");
+    setMostrarPopupR(false);
+    console.log("paso r");
+
 }
 
     const handleLinkClick = (event, targetId) => {
@@ -168,12 +191,13 @@ function Inicio(props){
     </div>
   </div>
   <Box m={5}>
+                    {mostrarPopupRs && <PopupRegistroS onClose={() => setMostrarPopupRs(false)} />}
+      </Box>
+  <Box m={5}>
                     {mostrarPopupR && <PopupRegistro onClose={() => setMostrarPopupR(false)} />}
       </Box>
 
-      <Box m={5}>
-                    {mostrarPopupRs && <PopupRegistroS onClose={() => setMostrarPopupRs(false)} />}
-      </Box>
+      
 </header>
 <section className="seccion__contenedor_contenedor__populares" id="hotelesPopulares">
   <h2 className="encabezado__seccion">Hoteles Populares</h2>

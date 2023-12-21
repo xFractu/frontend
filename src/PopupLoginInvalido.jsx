@@ -17,7 +17,6 @@ function Popup ({nombre}){
 
     const eventoCerrar = () => {
         setOpen(false)
-        window.location.reload();
     }
     return(
         <>
