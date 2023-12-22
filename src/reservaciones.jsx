@@ -33,6 +33,27 @@ function Reservaciones() {
     obtenerReservaciones();
   }, []);
 
+  const [datosId, setDatosId] = useState("");
+
+const eliminarReservacion = async (idReservacion) => {
+  console.log(idReservacion);
+  try {
+    if (idReservacion) {
+      const response = await axios.post('http://localhost:4567/frontend/eliminarReservacion', { datosId: { idReservacion } });
+      console.log(response.data);
+      // Lógica adicional si es necesario
+      obtenerReservaciones();
+    } else {
+      console.log("El ID de la reservación es obligatorio para eliminar.");
+      // Lógica adicional si es necesario
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
   const generarReservaciones = () => {
     return (
       <div>
@@ -44,7 +65,7 @@ function Reservaciones() {
               <p>Check-In: {reserva.check_in}</p>
               <p>Check-Out: {reserva.check_out}</p>
               <p>Personas: {reserva.personas}</p>
-              <button className="eliminar-btn">
+              <button className="eliminar-btn" onClick={() => eliminarReservacion(reserva.id_reservacion)}>
                 Eliminar Reservación
               </button>
             </div>
