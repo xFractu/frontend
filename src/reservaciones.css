@@ -1,0 +1,61 @@
+/* Estilos del contenedor principal de reservaciones */
+#contenedor_reservaciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+/* Estilos de cada tarjeta de reservación */
+.reservacion {
+    display: flex; /* Añadir esta propiedad para usar flexbox */
+    width: 700px;
+    gap: 1.5rem;
+    height: 215px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Estilos para la imagen */
+.imagenHotel {
+    background-image: url('assets/hotel-2.jpg');
+    width: 51.5%;
+    height: 10px; /* Ajustar al 100% del contenedor padre */
+    padding-top: 60.4%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border-radius: 8px; /* Añadir bordes redondeados solo a la izquierda */
+}
+
+/* Estilos para el texto */
+.reservaData {
+    width: 50%;
+    padding: 0 15px; /* Agregar relleno solo a los lados */
+}
+
+.reservacion h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.reservacion p {
+    margin: 8px 0;
+}
+
+/* Estilos del botón Eliminar Reservación */
+.eliminar-btn {
+    background-color: #ff6262;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.eliminar-btn:hover {
+    background-color: #ff4646;
+}

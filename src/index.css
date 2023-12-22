@@ -538,7 +538,26 @@ nav {
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .seccion__contenedor{
+    padding-top: 10rem;
+  }
   .contenedor__pie__pagina {
     gap: 2rem;
+  }
+
+  .pie__pagina{
+    margin-top: 3rem;
+  }
+
+  .secc_espacio{
+    margin: 30%;
+    height: max-content;
+  }
+
+  .espacio h1{
+    color: var(--blanco);
+    font-weight: 600;
+    color: var(--blanco);
+    padding: 50%;
   }
 }

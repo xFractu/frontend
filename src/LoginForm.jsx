@@ -20,7 +20,7 @@ const [datosFormulario, setDatosFormulario] = useState(
 const loginUsuario = async (evento) => {
     evento.preventDefault();
     try{
-        const response = await axios.post('http://localhost:4567/login',{datosFormulario})
+        const response = await axios.post('http://localhost:4567/frontend/login',{datosFormulario})
         console.log(response.data)
         if (response.data === 'Invalido') {
             // Si la respuesta es 'Invalido', limpiar los campos del formulario
