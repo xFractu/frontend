@@ -17,6 +17,31 @@ function RecuperarContra(props) {
     password: ''
   });
 
+  const mostrarAlertaCambioContraExitoso=()=>{
+    swal({
+      title: "Cambio de contraseña",
+      text: "Credenciales actualizadas correctamenete",
+      icon: "success",
+      button: "Aceptar"
+
+    }).then(respuesta=>{
+        if(respuesta){
+          redirectToLogin();
+        }
+        
+    })
+  }
+
+  const mostrarAlertaCambioContraFallido=()=>{
+    swal({
+      title: "Correo no encontrado",
+      text: "El correo que introdujo no existe o se escribio incorrectamente.",
+      icon: "error",
+      button: "Aceptar"
+
+    });
+  }
+
   const [mostrarContraseña, setMostrarContraseña] = useState(false);
   const [desactivarCorreo, setDesactivarCorreo] = useState(false); 
   const [cambio, setCambio] = useState(0);
@@ -36,7 +61,7 @@ function RecuperarContra(props) {
           setCambio(1);
         } else {
           console.log("No se encontró");
-          abrirPopupActualizarInv()
+          mostrarAlertaCambioContraFallido();
         }
 
         return response.data;
@@ -48,7 +73,7 @@ function RecuperarContra(props) {
         const response = await axios.post('http://localhost:4567/frontend/ColocarContra2', { datosFormulario });
         console.log(response.data);
         console.log(datosFormulario);
-        abrirPopupVeri()
+        mostrarAlertaCambioContraExitoso();
       }catch(error){
         throw error;
       }
@@ -85,6 +110,11 @@ function RecuperarContra(props) {
 
   const redirectToHome = () => {
     navigate("/frontend/");
+  };
+
+  const redirectToLogin = () => {
+    // Redirige a la página del hotel cuando se hace clic en el botón
+    navigate("/frontend/login");
   };
 
   return (

@@ -120,6 +120,11 @@ function Inicio(props){
 
           console.log("si entro");
           mostrarAlertaRegistroFallido();
+          setDatosFormulario({
+            correo: '',
+            password: '',
+            nombre: ''
+        });
           
           return;
         }
