@@ -13,22 +13,84 @@ function Inicio(props){
         {correo: '',
         password: '',
         nombre: ''
-    })
+    });
+
+    const mostrarAlertaLogOut=()=>{
+      swal({
+        title: "Cerrar Sesion",
+        text: "Seguro que quieres cerrar sesion",
+        icon: "warning",
+        buttons: ["No","Si"]
+      }).then(respuesta=>{
+        if(respuesta){
+          swal({text: "Sesion cerrada correctamente. Adios "+nombreUsuario+"",
+          icon: "success"
+        })
+        cerrarSesion();
+        }
+      })
+    }
+
+    const mostrarAlertaRegistroFallido=()=>{
+      swal({
+        title: "Registro Fallido",
+        text: "Introduzca los datos para poder registrarse.",
+        icon: "error",
+        button: "Aceptar"
+  
+      });
+    }
+
+    const mostrarAlertaRegistroExitoso=()=>{
+      swal({
+        title: "Registro Exitoso",
+        text: "Usuario registrado correctamente.",
+        icon: "success",
+        button: "Aceptar"
+  
+      });
+    }
+
+    const mostrarAlertaCorreoExistente=()=>{
+      //console.log(datosFormulario.correo);
+      swal({
+        title: "Registro Fallido",
+        text: "El correo "+datosFormulario.correo+" ya ha sido registrado",
+        icon: "error",
+        button: "Aceptar"
+  
+      });
+    }
 
     const [nombreUsuario, setNombreUsuario]=useState("");
 
+    const cerrarSesion = async () => {
+      try {
+        // Realizar la llamada al backend para obtener el nombre del usuario
+        const response = await axios.post('http://localhost:4567/frontend/cerrarSesion', { datosFormulario });
+        setNombreUsuario(response.data.nombre);
+        console.log(nombreUsuario);
+        obtenerNombreUsuario();
+        //mostrarAlertaLogOut();
+      } catch (error) {
+        // Manejar el error según tus necesidades
+        console.error("Error al obtener el nombre del usuario", error);
+      }
+    };
+
+    const obtenerNombreUsuario = async () => {
+      try {
+        // Realizar la llamada al backend para obtener el nombre del usuario
+        const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario', { datosFormulario });
+        setNombreUsuario(response.data.nombre);
+        console.log(nombreUsuario);
+      } catch (error) {
+        // Manejar el error según tus necesidades
+        console.error("Error al obtener el nombre del usuario", error);
+      }
+    };
+
     useEffect(() => {
-      const obtenerNombreUsuario = async () => {
-        try {
-          // Realizar la llamada al backend para obtener el nombre del usuario
-          const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario', { datosFormulario });
-          setNombreUsuario(response.data.nombre);
-        } catch (error) {
-          // Manejar el error según tus necesidades
-          console.error("Error al obtener el nombre del usuario", error);
-        }
-      };
-  
       // Llamar a la función al cargar la página
       obtenerNombreUsuario();
     }, []); 
@@ -44,7 +106,7 @@ function Inicio(props){
           
           const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
           console.log(response.data)
-          abrirPopupR()
+          mostrarAlertaRegistroExitoso();
           setDatosFormulario({
             correo: '',
             password: '',
@@ -57,7 +119,8 @@ function Inicio(props){
         }else{
 
           console.log("si entro");
-          abrirPopupRs();
+          mostrarAlertaRegistroFallido();
+          
           return;
         }
 
@@ -81,14 +144,9 @@ function Inicio(props){
 
   const cambiosFormulario = (evento) => {
     //console.log(evento.target)
-    console.log("entro cambiosF");
     const {name,value} = evento.target
     setDatosFormulario ({...datosFormulario, [name]: value})
-    console.log("entro cambiosF");
-    setMostrarPopupRs(false);
-    console.log("paso rs");
     setMostrarPopupR(false);
-    console.log("paso r");
 
 }
 
@@ -152,11 +210,12 @@ function Inicio(props){
     {nombreUsuario ? (
             <>
               <li className="enlace"><a href="#">{nombreUsuario}</a></li>
-              <li className="enlace"><a href="#">Cerrar Sesión</a></li>
+              <li className="enlace"><a href="#" onClick={mostrarAlertaLogOut}>Cerrar Sesión</a></li>
             </>
           ) : (
             <li className="enlace"><a href="#" onClick={redirectToLogin}>Iniciar Sesión</a></li>
-          )}
+          )
+    }
       
     
 
@@ -216,7 +275,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Holiday Inn Express</h4>
-          <h4>$1600</h4>
+          <h4>$1,600</h4>
         </div>
         <div className="info">
           <p>Veracruz, México</p>
@@ -231,7 +290,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Flamingo Vallarta</h4>
-          <h4>$2300</h4>
+          <h4>$2,300</h4>
         </div>
         <div className="info">
           <p>Jalisco, México</p>
@@ -246,7 +305,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Esperanza</h4>
-          <h4>$40000</h4>
+          <h4>$4,000</h4>
         </div>
         <div className="info">
           <p>Baja California Sur, México</p>
@@ -261,7 +320,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Gamma Acapulco</h4>
-          <h4>$2500</h4>
+          <h4>$2,500</h4>
         </div>
         <div className="info">
           <p>Guerrero, México</p>
@@ -276,7 +335,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel Royal Solaris</h4>
-          <h4>$4370</h4>
+          <h4>$4,370</h4>
         </div>
         <div className="info">
           <p>Quintana Roo, México</p>
@@ -291,7 +350,7 @@ function Inicio(props){
       <div className="contenido__popular">
         <div className="encabezado__tarjeta__popular">
           <h4>Hotel GR Caribe</h4>
-          <h4>$4200</h4>
+          <h4>$4,200</h4>
         </div>
         <div className="info">
         <p>Quintana Roo, México</p>
@@ -314,17 +373,14 @@ function Inicio(props){
 <footer className="pie__pagina">
   <div className="seccion__contenedor contenedor__pie__pagina">
     <div className="columna__pie">
-      <h3>WDM&Co</h3>
+      <h3>MCND Hoteles</h3>
       <p>
-        WDM&Co es un sitio web líder en reservas de hoteles que ofrece una forma sencilla y conveniente de encontrar y reservar alojamientos en todo el mundo.
+        MCND es un sitio web líder en reservas de hoteles que ofrece una forma sencilla y conveniente de encontrar y reservar alojamientos en todo el mundo.
       </p>
       <p>
         Con una interfaz fácil de usar y una amplia selección de hoteles, WDM&Co busca proporcionar una experiencia sin estrés para los viajeros que buscan la estadía perfecta.
       </p>
     </div>
-  </div>
-  <div className="barra__pie">
-    Derechos de autor © 2023 Web Design Mastery. Todos los derechos reservados.
   </div>
 </footer>
         </>

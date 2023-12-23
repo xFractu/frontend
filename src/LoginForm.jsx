@@ -17,31 +17,77 @@ const [datosFormulario, setDatosFormulario] = useState(
     password: ''
 })
 
+const redirectToRecuperarContraseña = () => {
+    navigate("/frontend/RecuperarContraseña");
+  };
+
+  const mostrarAlertaLoginExitoso=(nomb)=>{
+    swal({
+      title: "Inicio de sesion Exitoso",
+      text: "Bienvenido "+nomb+".",
+      icon: "success",
+      button: "Aceptar"
+
+    }).then(respuesta=>{
+        if(respuesta){
+            redirectToHome();
+        }
+        
+    })
+  }
+
+  const mostrarAlertaLoginFallido=()=>{
+    swal({
+      title: "Inicio de sesion fallido",
+      text: "Usuario o Contraseña Incorrecta.",
+      icon: "error",
+      button: "Aceptar"
+
+    });
+  }
+
+  const mostrarAlertaLoginSinDatos=()=>{
+    swal({
+      title: "Inicio de sesion fallido",
+      text: "Introduzca los datos que se le piden.",
+      icon: "error",
+      button: "Aceptar"
+
+    });
+  }
+
 const loginUsuario = async (evento) => {
     evento.preventDefault();
     try{
         const response = await axios.post('http://localhost:4567/frontend/login',{datosFormulario})
         console.log(response.data)
-        if (response.data === 'Invalido') {
-            // Si la respuesta es 'Invalido', limpiar los campos del formulario
-            abrirPopupIv()
-            setDatosFormulario({
-                correo: '',
-                password: ''
-            });
+        console.log("c = " +datosFormulario.correo+" p = "+datosFormulario.password)
+        if(datosFormulario.correo && datosFormulario.password){
+            if (response.data === 'Invalido') {
+                // Si la respuesta es 'Invalido', limpiar los campos del formulario
+                mostrarAlertaLoginFallido();
+                setDatosFormulario({
+                    correo: '',
+                    password: ''
+                });
+    
+                
+    
+            } else {
+    
+                // Si la respuesta es 'Valido', puedes realizar las acciones deseadas
+                setNombre(response.data.nombre);
+                console.log(response.data.nombre);
+                mostrarAlertaLoginExitoso(response.data.nombre);
+                //abrirPopupV()
+                
+            }
 
+
+        }else{
             
-
-        } else {
-
-            // Si la respuesta es 'Valido', puedes realizar las acciones deseadas
-            setNombre(response.data.nombre)
-            abrirPopupV()
-            
+            mostrarAlertaLoginSinDatos();
         }
-
-
-
 
         return response.data
     } catch(error){
@@ -100,7 +146,7 @@ const redirectToHome = () => {
                 </div>
                 <div className="remember-forgot">
                     <label><input type="checkbox" />Recuerdame</label>
-                    <a href="#">¿Contraseña olvidada?</a>
+                    <a href="#" onClick={redirectToRecuperarContraseña} >¿Contraseña olvidada?</a>
                 </div>
         
                 <button className="Entrar" onClick={loginUsuario} disabled={Cargando}>Entrar</button>

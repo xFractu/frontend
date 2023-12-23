@@ -11,6 +11,7 @@ import PaginaHotel5 from './paginaHotel5.jsx';
 import PaginaHotel6 from './paginaHotel6.jsx';
 import Login from './LoginForm.jsx';
 import Reservaciones from './reservaciones.jsx';
+import RecuperarC from './RecuperarContra.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path = "/frontend/paginaHotel6" element = {<PaginaHotel6/>}/>
         <Route path = "/frontend/login" element = {<Login/>}/>
         <Route path = "/frontend/reservaciones" element = {<Reservaciones/>}/>
+        <Route path = "/frontend/RecuperarContraseña" element = {<RecuperarC/>}/>
       </Routes>
     </Router>
   </React.StrictMode>,

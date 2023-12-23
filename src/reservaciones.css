@@ -59,3 +59,25 @@
 .eliminar-btn:hover {
     background-color: #ff4646;
 }
+
+.IniSesReserva{
+    padding-top: 2rem;
+    padding-bottom: 10px;
+	border-bottom: 1px solid #e4e4e4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    font-size: 24px;
+	font-weight: 300;
+}
+
+.ReservaNull{
+    padding-top: 2rem;
+    padding-bottom: 10px;
+	border-bottom: 1px solid #e4e4e4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+    font-size: 24px;
+	font-weight: 300;
+}

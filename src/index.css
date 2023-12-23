@@ -550,6 +550,7 @@ nav {
   }
 
   .secc_espacio{
+    padding: 1rem 1rem 5rem 1rem;
     margin: 30%;
     height: max-content;
   }
