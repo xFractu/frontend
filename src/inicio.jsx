@@ -101,20 +101,37 @@ function Inicio(props){
 
     const registrarUsuario = async () => {
       try{
-
         if(datosFormulario.correo && datosFormulario.password && datosFormulario.nombre) {
-          
-          const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
-          console.log(response.data)
-          mostrarAlertaRegistroExitoso();
-          setDatosFormulario({
-            correo: '',
-            password: '',
-            nombre: ''
-        });
-          return response.data
+
+          const response2 = await axios.post('http://localhost:4567/frontend/correoExiste',{datosFormulario})
+          console.log(response2.data);
+          const res = response2.data;
+          console.log("res: "+res);
+
+          // Verificar si el correo existe
+          if (res.correoExistente) {
+            // Hacer algo si el correo existe
+            mostrarAlertaCorreoExistente();
+            setDatosFormulario({
+              correo: '',
+              password: '',
+              nombre: ''
+          });
+        } else {
+            // Hacer algo si el correo no existe
+            
+            const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
+            console.log(response.data)
+            mostrarAlertaRegistroExitoso();
+            setDatosFormulario({
+              correo: '',
+              password: '',
+              nombre: ''
+          });
+            return response.data
 
 
+        }
           
         }else{
 
