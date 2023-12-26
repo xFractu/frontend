@@ -35,6 +35,22 @@ function Reservaciones() {
     })
   }
 
+  const mostrarAlertaEliminarRes=(idReservacion,nombHotel)=>{
+    swal({
+      title: "Eliminar Reservacion",
+      text: "Seguro que quieres eliminar la reservacion de una habitacion en el "+nombHotel+".",
+      icon: "warning",
+      buttons: ["No","Si"]
+    }).then(respuesta=>{
+      if(respuesta){
+        swal({text: "Reservacion eliminada correctamente.",
+        icon: "success"
+      })
+      eliminarReservacion(idReservacion,nombHotel);
+      }
+    })
+  }
+
   const obtenerReservaciones = async () => {
     try {
       const response = await axios.post('http://localhost:4567/frontend/obtenerReservaciones');
@@ -125,7 +141,7 @@ const eliminarReservacion = async (idReservacion) => {
                   <p>Check-In: {reserva.check_in}</p>
                   <p>Check-Out: {reserva.check_out}</p>
                   <p>Personas: {reserva.personas}</p>
-                  <button className="eliminar-btn" onClick={() => eliminarReservacion(reserva.id_reservacion)}>
+                  <button className="eliminar-btn" onClick={() => mostrarAlertaEliminarRes(reserva.id_reservacion,reserva.nombre_hotel)}>
                     Eliminar Reservación
                   </button>
                 </div>

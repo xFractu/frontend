@@ -68,6 +68,16 @@ function PaginaHotel1() {
 
     });
   }
+
+  const mostrarAlertaReservaFallidaPers=()=>{
+    swal({
+      title: "Reservacion Info",
+      text: "El número maximo de personas es de 4 por habitacion.",
+      icon: "info",
+      button: "Aceptar"
+
+    });
+  }
   
   const formatDate = (date) => {
     // Formatear la fecha en formato numérico (dd/MM/yyyy)
@@ -124,8 +134,14 @@ function PaginaHotel1() {
         if (
           reservationData.checkInDate &&
           reservationData.checkOutDate &&
-          reservationData.quantity
+          reservationData.quantity && reservationData.quantity<4
         ) {
+
+
+
+
+
+
           // Realizar la solicitud al backend utilizando axios u otra biblioteca de tu elección
           handleReserveClick();
           const response = await axios.post('http://localhost:4567/frontend/hacerReservacionHotel1', {
@@ -206,8 +222,12 @@ function PaginaHotel1() {
   };
   
   const handleQuantityChange = (value) => {
-    setQuantity(value);
-    setReservationData((prevData) => ({ ...prevData, quantity: value }));
+    if (value >= 1 && value <= 4) {
+      setQuantity(value);
+      setReservationData((prevData) => ({ ...prevData, quantity: value }));
+    } else {
+      mostrarAlertaReservaFallidaPers();
+    }
   };
   const [showReservationDetails, setShowReservationDetails] = useState(false);
 

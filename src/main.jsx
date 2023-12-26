@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import Inicio from './inicio.jsx';
 import PaginaHotel1 from './paginaHotel1.jsx';
@@ -13,7 +14,7 @@ import Login from './LoginForm.jsx';
 import Reservaciones from './reservaciones.jsx';
 import RecuperarC from './RecuperarContra.jsx';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>

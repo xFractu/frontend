@@ -65,6 +65,16 @@ function PaginaHotel4() {
 
     });
   }
+
+  const mostrarAlertaReservaFallidaPers=()=>{
+    swal({
+      title: "Reservacion Info",
+      text: "El número maximo de personas es de 4 por habitacion.",
+      icon: "info",
+      button: "Aceptar"
+
+    });
+  }
   
   const formatDate = (date) => {
     // Formatear la fecha en formato numérico (dd/MM/yyyy)
@@ -202,8 +212,12 @@ function PaginaHotel4() {
   };
   
   const handleQuantityChange = (value) => {
-    setQuantity(value);
-    setReservationData((prevData) => ({ ...prevData, quantity: value }));
+    if (value >= 1 && value <= 4) {
+      setQuantity(value);
+      setReservationData((prevData) => ({ ...prevData, quantity: value }));
+    } else {
+      mostrarAlertaReservaFallidaPers();
+    }
   };
   const [showReservationDetails, setShowReservationDetails] = useState(false);
 
