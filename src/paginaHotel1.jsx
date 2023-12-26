@@ -134,7 +134,7 @@ function PaginaHotel1() {
         if (
           reservationData.checkInDate &&
           reservationData.checkOutDate &&
-          reservationData.quantity && reservationData.quantity<4
+          reservationData.quantity
         ) {
 
 

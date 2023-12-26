@@ -385,25 +385,36 @@ function Inicio(props){
 </section>
 
 <section className="secc_espacio">
-  <div className = "espacio">
-            <h1>Hola</h1>
-
-  </div>
-</section>
+        <div className = "espacio">&nbsp;</div>
+      </section>
 
 
-<footer className="pie__pagina">
-  <div className="seccion__contenedor contenedor__pie__pagina">
-    <div className="columna__pie">
-      <h3>MCND Hoteles</h3>
-      <p>
-        MCND es un sitio web líder en reservas de hoteles que ofrece una forma sencilla y conveniente de encontrar y reservar alojamientos en todo el mundo.
-      </p>
-      <p>
-        Con una interfaz fácil de usar y una amplia selección de hoteles, WDM&Co busca proporcionar una experiencia sin estrés para los viajeros que buscan la estadía perfecta.
-      </p>
-    </div>
-  </div>
+      <footer className="pie__pagina">
+        <div className="seccion_contenedor contenedorpie_pagina">
+          <div className="columna__pie">
+            <h3>MCND Hoteles</h3>
+            <div className="columna_pie_textos">
+              <p>
+                MCND es un sitio web líder en reservas de hoteles que ofrece una forma sencilla y conveniente de encontrar y reservar alojamientos en todo el mundo.
+              </p>
+              <p>
+                Con una interfaz fácil de usar y una amplia selección de hoteles, MCND busca proporcionar una experiencia sin estrés para los viajeros que buscan la estadía perfecta.
+              </p>
+              <p>
+                Universidad Veracruzana <br></br>
+                Tecnologías Computacionales <br></br>
+                Sistemas Web <br></br>
+                5to Semestre <br></br>
+                Diciembre 2023<br></br> <br></br>
+                Realizado por: <br></br> 
+                  Cancino Vega Natalia<br></br>
+                  Cerqueda Herrera Diego<br></br>
+                  Gómez Núñez Cesar David <br></br>
+                  Moreno López Mario Antonio
+              </p>
+            </div>
+          </div>
+        </div>
 </footer>
         </>
       )

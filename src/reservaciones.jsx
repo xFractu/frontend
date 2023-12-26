@@ -137,7 +137,7 @@ const eliminarReservacion = async (idReservacion) => {
               <div key={reserva.id_reservacion} className="reservacion">
                 <div className="reservaData">
                   <h3>{reserva.nombre_hotel}</h3>
-                  <p>Precio de la reservación: {reserva.precio}</p>
+                  <p>Precio de la reservación: ${reserva.precio}</p>
                   <p>Check-In: {reserva.check_in}</p>
                   <p>Check-Out: {reserva.check_out}</p>
                   <p>Personas: {reserva.personas}</p>

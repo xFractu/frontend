@@ -114,7 +114,7 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 2rem;
-  animation: cambio-imagen 20s infinite; /* Cambiar cada 20 segundos */
+  animation: cambio-imagen 30s infinite; /* Cambiar cada 30 segundos */
 }
 
 @keyframes cambio-imagen {
@@ -436,12 +436,18 @@ nav {
 
 .pie__pagina {
   background-color: var(--extra-claro);
+  padding: 20px 20px 20px 100px; /* arriba derecha abajo izquierda */
 }
-
-.contenedor__pie__pagina {
+.columna_pie_textos {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.contenedor_pie_pagina {
   grid-template-columns: 2fr repeat(3, 1fr);
   gap: 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .columna__pie h3 {
@@ -463,6 +469,8 @@ nav {
   color: var(--texto-claro);
   cursor: pointer;
   transition: 0.3s;
+  text-align: left;
+  white-space: pre-line;
 }
 
 .columna__pie p:hover {
@@ -507,8 +515,10 @@ nav {
     gap: 1rem;
   }
 
-  .contenedor__pie__pagina {
-    grid-template-columns: repeat(2, 1fr);
+  .contenedor_pie_pagina {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 1rem; /* Reduce el espacio entre las columnas */
   }
 }
 
@@ -541,7 +551,7 @@ nav {
   .seccion__contenedor{
     padding-top: 10rem;
   }
-  .contenedor__pie__pagina {
+  .contenedor_pie_pagina {
     gap: 2rem;
   }
 
