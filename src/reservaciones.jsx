@@ -53,7 +53,7 @@ function Reservaciones() {
 
   const obtenerReservaciones = async () => {
     try {
-      const response = await axios.post('http://localhost:4567/frontend/obtenerReservaciones');
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/obtenerReservaciones');
       console.log("Reservaciones obtenidas:", response.data.reservaciones);
       // Almacena las reservaciones en el estado
       setReservas(response.data.reservaciones);
@@ -67,7 +67,7 @@ function Reservaciones() {
   const obtenerNombreUsuario = async () => {
     try {
       // Realizar la llamada al backend para obtener el nombre del usuario
-      const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario');
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/obtenerUsuario');
       setNombreUsuario(response.data.nombre);
     } catch (error) {
       // Manejar el error según tus necesidades
@@ -78,7 +78,7 @@ function Reservaciones() {
   const cerrarSesion = async () => {
     try {
       // Realizar la llamada al backend para obtener el nombre del usuario
-      const response = await axios.post('http://localhost:4567/frontend/cerrarSesion');
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/cerrarSesion');
       setNombreUsuario(response.data.nombre);
       obtenerNombreUsuario();
       redirectToHotelPage();
@@ -100,7 +100,7 @@ const eliminarReservacion = async (idReservacion) => {
   console.log(idReservacion);
   try {
     if (idReservacion) {
-      const response = await axios.post('http://localhost:4567/frontend/eliminarReservacion', { datosId: { idReservacion } });
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/eliminarReservacion', { datosId: { idReservacion } });
       console.log(response.data);
       // Lógica adicional si es necesario
       obtenerReservaciones();

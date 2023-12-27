@@ -51,7 +51,7 @@ function RecuperarContra(props) {
 
     if (cambio === 0) {
       try {
-        const response = await axios.post('http://localhost:4567/frontend/RecuperarContra', { datosFormulario });
+        const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/RecuperarContra', { datosFormulario });
         console.log(response.data);
 
         if (response.data === 'Usuario encontrado') {
@@ -70,7 +70,7 @@ function RecuperarContra(props) {
       }
     } else {
       try{
-        const response = await axios.post('http://localhost:4567/frontend/ColocarContra2', { datosFormulario });
+        const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/ColocarContra2', { datosFormulario });
         console.log(response.data);
         console.log(datosFormulario);
         mostrarAlertaCambioContraExitoso();

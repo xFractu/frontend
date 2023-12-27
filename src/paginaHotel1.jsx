@@ -92,7 +92,7 @@ function PaginaHotel1() {
   const obtenerNombreUsuario = async () => {
     try {
       // Realizar la llamada al backend para obtener el nombre del usuario
-      const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario');
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/obtenerUsuario');
       setNombreUsuario(response.data.nombre);
     } catch (error) {
       // Manejar el error según tus necesidades
@@ -103,7 +103,7 @@ function PaginaHotel1() {
   const cerrarSesion = async () => {
     try {
       // Realizar la llamada al backend para obtener el nombre del usuario
-      const response = await axios.post('http://localhost:4567/frontend/cerrarSesion');
+      const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/cerrarSesion');
       setNombreUsuario(response.data.nombre);
       obtenerNombreUsuario();
       redirectToHotelPage();
@@ -144,7 +144,7 @@ function PaginaHotel1() {
 
           // Realizar la solicitud al backend utilizando axios u otra biblioteca de tu elección
           handleReserveClick();
-          const response = await axios.post('http://localhost:4567/frontend/hacerReservacionHotel1', {
+          const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/hacerReservacionHotel1', {
             reservationData
           });
     

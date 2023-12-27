@@ -59,7 +59,7 @@ const redirectToRecuperarContraseña = () => {
 const loginUsuario = async (evento) => {
     evento.preventDefault();
     try{
-        const response = await axios.post('http://localhost:4567/frontend/login',{datosFormulario})
+        const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/login',{datosFormulario})
         console.log(response.data)
         console.log("c = " +datosFormulario.correo+" p = "+datosFormulario.password)
         if(datosFormulario.correo && datosFormulario.password){

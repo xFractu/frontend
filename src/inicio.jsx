@@ -67,7 +67,7 @@ function Inicio(props){
     const cerrarSesion = async () => {
       try {
         // Realizar la llamada al backend para obtener el nombre del usuario
-        const response = await axios.post('http://localhost:4567/frontend/cerrarSesion', { datosFormulario });
+        const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/cerrarSesion', { datosFormulario });
         setNombreUsuario(response.data.nombre);
         console.log(nombreUsuario);
         obtenerNombreUsuario();
@@ -81,7 +81,7 @@ function Inicio(props){
     const obtenerNombreUsuario = async () => {
       try {
         // Realizar la llamada al backend para obtener el nombre del usuario
-        const response = await axios.post('http://localhost:4567/frontend/obtenerUsuario', { datosFormulario });
+        const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/obtenerUsuario', { datosFormulario });
         setNombreUsuario(response.data.nombre);
         console.log(nombreUsuario);
       } catch (error) {
@@ -103,7 +103,7 @@ function Inicio(props){
       try{
         if(datosFormulario.correo && datosFormulario.password && datosFormulario.nombre) {
 
-          const response2 = await axios.post('http://localhost:4567/frontend/correoExiste',{datosFormulario})
+          const response2 = await axios.post('https://backend-production-6513.up.railway.app/frontend/correoExiste',{datosFormulario})
           console.log(response2.data);
           const res = response2.data;
           console.log("res: "+res);
@@ -120,7 +120,7 @@ function Inicio(props){
         } else {
             // Hacer algo si el correo no existe
             
-            const response = await axios.post('http://localhost:4567/frontend/',{datosFormulario})
+            const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/',{datosFormulario})
             console.log(response.data)
             mostrarAlertaRegistroExitoso();
             setDatosFormulario({
