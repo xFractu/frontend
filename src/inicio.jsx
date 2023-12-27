@@ -118,7 +118,7 @@ function Inicio(props){
               nombre: ''
           });
         } else {
-            // Hacer algo si el correo no existe
+            // Hacer algo en caso de que el correo no existe
             
             const response = await axios.post('https://backend-production-6513.up.railway.app/frontend/',{datosFormulario})
             console.log(response.data)
